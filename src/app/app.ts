@@ -1,7 +1,6 @@
 import { Component, signal } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 
-
 /*Importação Angular button*/
 import { MatButtonModule } from '@angular/material/button';
 
@@ -25,9 +24,10 @@ import { MatMenuModule } from '@angular/material/menu';
 
 /*Importação Angular toolbar */
 import {MatToolbarModule} from '@angular/material/toolbar';
+import { MenuComponent } from './menu/menu';
 
 @Component({
-  imports: [RouterOutlet, MatButtonModule, MatCardModule, MatFormFieldModule, MatGridListModule, MatIconModule, MatInputModule, MatMenuModule, MatToolbarModule],
+  imports: [RouterOutlet, MatButtonModule, MatCardModule, MatFormFieldModule, MatGridListModule, MatIconModule, MatInputModule, MatMenuModule, MatToolbarModule, MenuComponent],
   selector: 'app-root',
   styleUrl: './app.css',
   templateUrl: './app.html',
