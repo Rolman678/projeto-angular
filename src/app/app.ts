@@ -25,9 +25,10 @@ import { MatMenuModule } from '@angular/material/menu';
 /*Importação Angular toolbar */
 import {MatToolbarModule} from '@angular/material/toolbar';
 import { MenuComponent } from './menu/menu';
+import { Inicio } from './inicio/inicio';
 
 @Component({
-  imports: [RouterOutlet, MatButtonModule, MatCardModule, MatFormFieldModule, MatGridListModule, MatIconModule, MatInputModule, MatMenuModule, MatToolbarModule, MenuComponent],
+  imports: [RouterOutlet, MatButtonModule, MatCardModule, MatFormFieldModule, MatGridListModule, MatIconModule, MatInputModule, MatMenuModule, MatToolbarModule, MenuComponent, Inicio],
   selector: 'app-root',
   styleUrl: './app.css',
   templateUrl: './app.html',
