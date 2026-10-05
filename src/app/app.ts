@@ -26,9 +26,11 @@ import { MatMenuModule } from '@angular/material/menu';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import { MenuComponent } from './menu/menu';
 import { Inicio } from './inicio/inicio';
+import { Login } from './login/login';
+import { Rodape } from './rodape/rodape';
 
 @Component({
-  imports: [RouterOutlet, MatButtonModule, MatCardModule, MatFormFieldModule, MatGridListModule, MatIconModule, MatInputModule, MatMenuModule, MatToolbarModule, MenuComponent, Inicio],
+  imports: [RouterOutlet, MatButtonModule, MatCardModule, MatFormFieldModule, MatGridListModule, MatIconModule, MatInputModule, MatMenuModule, MatToolbarModule, MenuComponent, Inicio, Login, Rodape],
   selector: 'app-root',
   styleUrl: './app.css',
   templateUrl: './app.html',

@@ -1,6 +1,7 @@
 /* Define uma altura mínima para o conteúdo principal */
 main {
     min-height: 400px;
+    padding-bottom: 50px;
 }
 
 /* Define uma altura mínima para a seção do banner */
@@ -31,7 +32,7 @@ main {
 /* Organiza os cards em um layout de grade responsivo */
 .cards-container {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
     gap: 30px;
 }
 
@@ -46,14 +47,21 @@ main {
 /* Centraliza o conteúdo do cabeçalho do card */
 mat-card-header {
     display: flex;
-    align-items: center;
-    justify-content: center;
+    align-items: justify;
+    justify-content: justify;
+
+}
+
+mat-card-title {
+    font-weight: bold;
+    font-size: 18px;
 }
 
 /* Define a cor e o peso do preço */
 .preço {
     color: red;
     font-weight: bold;
+    font-size: 20px;
 }
 
 /* Distribui os botões dentro das ações do card */
@@ -63,8 +71,19 @@ mat-card-actions {
 }
 
 /* Define o estilo dos botões */
-button {
-    color: rgb(0, 139, 219);
+.button-card {
+    color: white;
+    background-color: rgb(3, 168, 233);
     border-radius: 8px;
     font-weight: bold;
+}
+
+/* Mantiene o botão alinhado na parte inferior do card */
+mat-card {
+    display: flex;
+    flex-direction: column;
+}
+
+mat-card-actions {
+    margin-top: auto;
 }

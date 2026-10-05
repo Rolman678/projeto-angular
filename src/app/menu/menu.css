@@ -1,3 +1,8 @@
+mat-toolbar {
+    background-color: rgb(3, 168, 233);
+    color: white;
+}
+
 .example-spacer {
     flex: 1 1 auto;
 }
@@ -9,4 +14,9 @@ span {
 img {
     height: 50px;
     width: 50px;
+}
+
+a {
+    text-decoration: none;
+    color: white;
 }

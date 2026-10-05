@@ -1,2 +1,12 @@
-<app-menu></app-menu>
-<app-inicio></app-inicio>
+<div class="d-flex flex-column min-vh-100">
+
+    <app-menu></app-menu>
+
+    <!-- Contenedor intermedio que crecerá para empujar al footer hacia abajo -->
+    <div class="flex-grow-1">
+        <router-outlet></router-outlet>
+    </div>
+
+    <app-rodape></app-rodape>
+
+</div>
