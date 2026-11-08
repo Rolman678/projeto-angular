@@ -3,7 +3,6 @@ import { AtualizaProduto } from './atualiza-produto';
 import { provideRouter, ActivatedRoute } from '@angular/router';
 import { provideHttpClient } from '@angular/common/http';
 import { provideHttpClientTesting } from '@angular/common/http/testing';
-import { of } from 'rxjs';
 
 describe('AtualizaProduto', () => {
   let component: AtualizaProduto;
@@ -18,9 +17,7 @@ describe('AtualizaProduto', () => {
         provideHttpClientTesting(),
         {
           provide: ActivatedRoute,
-          useValue: {
-            params: of({ id: 1 }),
-          },
+          useValue: { snapshot: { paramMap: { get: () => '1' } } },
         },
       ],
     }).compileComponents();

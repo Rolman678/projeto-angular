@@ -1,11 +1,8 @@
-import { Component, OnInit, OnDestroy, afterNextRender } from '@angular/core';
+import { Component, OnInit, signal } from '@angular/core';
 import { produto } from '../../models/produto.model';
 import { ProdutoService } from '../../produto';
-import { NgForOf } from '@angular/common';
-import { RouterLink, Router, NavigationEnd } from '@angular/router';
-import { CurrencyPipe } from '@angular/common';
-import { filter, Subscription } from 'rxjs';
-import { LoginService } from '../../login';
+import { NgForOf, CurrencyPipe } from '@angular/common';
+import { RouterLink } from '@angular/router';
 
 @Component({
   imports: [NgForOf, RouterLink, CurrencyPipe],
@@ -13,40 +10,18 @@ import { LoginService } from '../../login';
   styleUrl: './lista-produto.css',
   templateUrl: './lista-produto.html',
 })
-export class ListaProduto implements OnInit, OnDestroy {
-  public produtos: any[] = [];
-  private routerSubscription!: Subscription;
+export class ListaProduto implements OnInit {
+  public produtos = signal<produto[]>([]);
 
-  constructor(
-    private _produtoService: ProdutoService,
-    private _router: Router,
-    private _loginService: LoginService,
-  ) {
-    afterNextRender(() => {
-      this.listarProdutos();
-    });
-  }
+  constructor(private _produtoService: ProdutoService) {}
 
   ngOnInit(): void {
-    this._loginService.setMostraMenu(false);
-
-    this.routerSubscription = this._router.events
-      .pipe(filter((event) => event instanceof NavigationEnd))
-      .subscribe(() => {
-        this.listarProdutos();
-      });
-  }
-
-  ngOnDestroy(): void {
-    if (this.routerSubscription) {
-      this.routerSubscription.unsubscribe();
-    }
+    this.listarProdutos();
   }
 
   listarProdutos(): void {
-    this._produtoService.getProdutos().subscribe((retornaProduto: any) => {
-      console.log('Produtos carregados com sucesso:', retornaProduto);
-      this.produtos = retornaProduto;
+    this._produtoService.getProdutos().subscribe((retornaProduto) => {
+      this.produtos.set(retornaProduto);
     });
   }
 
@@ -55,7 +30,7 @@ export class ListaProduto implements OnInit, OnDestroy {
       next: () => {
         this.listarProdutos();
       },
-      error: (err) => {
+      error: () => {
         alert('Erro ao Excluir');
       },
     });

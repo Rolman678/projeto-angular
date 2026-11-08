@@ -21,8 +21,10 @@ export class Login {
   ) {}
 
   fazerLogin() {
-    this._loginService.login(this.usuario, this.senha);
-    this._router.navigate(['/restrito/lista']);
-    this._loginService.setMostraMenu(false);
+    if (this._loginService.login(this.usuario, this.senha)) {
+      this._router.navigate(['/restrito/lista']);
+    } else {
+      alert('Usuário ou senha inválidos');
+    }
   }
 }

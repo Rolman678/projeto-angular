@@ -8,12 +8,14 @@ export class LoginService {
   mostraMenu = new Subject<boolean>();
   constructor() {}
 
-  login(usuario: string, senha: string): void {
+  login(usuario: string, senha: string): boolean {
     if (usuario == 'aluno' && senha == '1234') {
       localStorage.setItem('token', 'qwer1234');
       this.mostraMenu.next(false);
+      return true;
     } else {
       this.mostraMenu.next(true);
+      return false;
     }
   }
 

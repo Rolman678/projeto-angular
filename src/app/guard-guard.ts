@@ -20,7 +20,7 @@ export class GuardGuard implements CanActivate {
 
   canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): MaybeAsync<GuardResult> {
     if (isPlatformBrowser(this.platformId)) {
-      if (localStorage.getItem('token') !== null) {
+      if (localStorage.getItem('token') === 'qwer1234') {
         return true;
       }
     }
