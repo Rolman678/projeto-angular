@@ -37,16 +37,16 @@
     <div class="cards-container">
 
         <!-- CARD 1 -->
-        <mat-card class="example-card">
-            <img mat-card-image src="img/Mouse.jpg" alt="MOUSE">
+        <mat-card class="example-card" *ngFor="let produto of produtos">
+            <img mat-card-image src="img/{{produto.foto}}" alt="MOUSE">
 
             <mat-card-header>
-                <mat-card-title>MOUSE PROFISSIONAL 26K DPI</mat-card-title>
+                <mat-card-title>{{produto.produto}}</mat-card-title>
             </mat-card-header>
 
             <mat-card-content>
-                <p>Sensor óptico de precisão e 8 botões programáveis</p>
-                <p class="preço">R$ 319,00</p>
+                <p>{{produto.descricao}}</p>
+                <p class="preço">{{produto.preco | currency : 'BRL'}}</p>
             </mat-card-content>
 
             <mat-card-actions>
@@ -54,94 +54,5 @@
             </mat-card-actions>
         </mat-card>
 
-        <!-- CARD 2 -->
-        <mat-card class="example-card">
-            <img mat-card-image src="img/controle.jpg" alt="CONTROLE">
-
-            <mat-card-header>
-                <mat-card-title>CONTROLE WIRELESS PRO</mat-card-title>
-            </mat-card-header>
-
-            <mat-card-content>
-                <p>Gatilhos adaptáveis e bateria de 12 horas</p>
-                <p class="preço">R$ 429,00</p>
-            </mat-card-content>
-
-            <mat-card-actions>
-                <button class="button-card">COMPRAR</button>
-            </mat-card-actions>
-        </mat-card>
-
-        <!-- CARD 3 -->
-        <mat-card class="example-card">
-            <img mat-card-image src="img/headset.jpg" alt="HEADSET">
-
-            <mat-card-header>
-                <mat-card-title>HEADSET SURROUND 7.1</mat-card-title>
-            </mat-card-header>
-
-            <mat-card-content>
-                <p>Áudio espacial com microfone com cancelamento de ruído</p>
-                <p class="preço">R$ 649,00</p>
-            </mat-card-content>
-
-            <mat-card-actions>
-                <button class="button-card">COMPRAR</button>
-            </mat-card-actions>
-        </mat-card>
-
-        <!-- CARD 4 -->
-        <mat-card class="example-card">
-            <img mat-card-image src="img/teclado.jpg" alt="TECLADO">
-
-            <mat-card-header>
-                <mat-card-title>TECLADO MECÂNICO</mat-card-title>
-            </mat-card-header>
-
-            <mat-card-content>
-                <p>Switches lineares, ABNT2 e apoio de pulso magnético.</p>
-                <p class="preço">R$ 559,00</p>
-            </mat-card-content>
-
-            <mat-card-actions>
-                <button class="button-card">COMPRAR</button>
-            </mat-card-actions>
-        </mat-card>
-
-        <!-- CARD 5 -->
-        <mat-card class="example-card">
-            <img mat-card-image src="img/ps4.jpg" alt="TECLADO">
-
-            <mat-card-header>
-                <mat-card-title>CONSOLE PLAYSTATION 4 - 1 TB</mat-card-title>
-            </mat-card-header>
-
-            <mat-card-content>
-                <p>Edição digital black com 2 controles sem fio inclusos</p>
-                <p class="preço">R$ 3.799,00</p>
-            </mat-card-content>
-
-            <mat-card-actions>
-                <button class="button-card">COMPRAR</button>
-            </mat-card-actions>
-        </mat-card>
-
-        <!-- CARD 6 -->
-        <mat-card class="example-card">
-            <img mat-card-image src="img/monitor.jpg" alt="TECLADO">
-
-            <mat-card-header>
-                <mat-card-title>MONITOR DE CALIDAD DE AIRE</mat-card-title>
-            </mat-card-header>
-
-            <mat-card-content>
-                <p>Monitor inteligente para medir CO₂ y calidad del aire en tiempo real.</p>
-                <p class="preço">R$ 249,00</p>
-            </mat-card-content>
-
-            <mat-card-actions>
-                <button class="button-card">COMPRAR</button>
-            </mat-card-actions>
-        </mat-card>
     </div>
 </main>

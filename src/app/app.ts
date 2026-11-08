@@ -1,4 +1,4 @@
-import { Component, signal } from '@angular/core';
+import { Component, OnDestroy, OnInit, signal } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 
 /*Importação Angular button*/
@@ -23,18 +23,52 @@ import { MatInputModule } from '@angular/material/input';
 import { MatMenuModule } from '@angular/material/menu';
 
 /*Importação Angular toolbar */
-import {MatToolbarModule} from '@angular/material/toolbar';
+import { MatToolbarModule } from '@angular/material/toolbar';
 import { MenuComponent } from './menu/menu';
-import { Inicio } from './inicio/inicio';
-import { Login } from './login/login';
 import { Rodape } from './rodape/rodape';
+import { RestritoRoutesModule } from './restrito/restrito-routes';
+import { FormsModule } from '@angular/forms';
+import { ReactiveFormsModule } from '@angular/forms';
+import { NgIf } from '@angular/common';
+import { LoginService } from './login';
 
 @Component({
-  imports: [RouterOutlet, MatButtonModule, MatCardModule, MatFormFieldModule, MatGridListModule, MatIconModule, MatInputModule, MatMenuModule, MatToolbarModule, MenuComponent, Inicio, Login, Rodape],
+  imports: [
+    RouterOutlet,
+    MatButtonModule,
+    MatCardModule,
+    MatFormFieldModule,
+    MatGridListModule,
+    MatIconModule,
+    MatInputModule,
+    MatMenuModule,
+    MatToolbarModule,
+    MenuComponent,
+    Rodape,
+    RestritoRoutesModule,
+    FormsModule,
+    ReactiveFormsModule,
+    NgIf,
+  ],
   selector: 'app-root',
   styleUrl: './app.css',
   templateUrl: './app.html',
 })
-export class App {
+export class App implements OnInit, OnDestroy {
   protected readonly title = signal('projeto-angular');
+  mostrarMenu: boolean = true;
+
+  constructor(private _loginService: LoginService) {}
+
+  ngOnInit(): void {
+    this._loginService.getMostraMenu().subscribe((res) => {
+      this.mostrarMenu = res;
+    });
+  }
+
+  ngOnDestroy() {
+    if (typeof localStorage !== 'undefined') {
+      localStorage.clear();
+    }
+  }
 }

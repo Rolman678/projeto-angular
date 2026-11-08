@@ -1,0 +1,47 @@
+{
+  "produtos": [
+    {
+      "id": "1",
+      "produto": "MOUSE PROFISSIONAL 26K DPI",
+      "descricao": "Sensor óptico de precisão e 8 botões programáveis",
+      "foto": "Mouse.jpg",
+      "preco": 300
+    },
+    {
+      "id": "2",
+      "produto": "CONTROLE WIRELESS PRO",
+      "descricao": "Gatilhos adaptáveis e bateria de 12 horas",
+      "foto": "controle.jpg",
+      "preco": 429
+    },
+    {
+      "id": "3",
+      "produto": "HEADSET SURROUND 7.5",
+      "descricao": "Áudio espacial com microfone com cancelamento de ruído",
+      "foto": "headset.jpg",
+      "preco": 700
+    },
+    {
+      "id": "4",
+      "produto": "TECLADO MECÂNICO",
+      "descricao": "Switches lineares, ABNT2 e apoio de pulso magnético.",
+      "foto": "teclado.jpg",
+      "preco": 559
+    },
+    {
+      "id": "5",
+      "produto": "CONSOLE PLAYSTATION 4 - 1 TB",
+      "descricao": "Edição digital black com 2 controles sem fio inclusos",
+      "foto": "ps4.jpg",
+      "preco": 3799
+    },
+    {
+      "id": "6",
+      "produto": "MONITOR DE CALIDAD DE AIRE",
+      "descricao": "Monitor inteligente para medir CO₂ y calidad del aire en tiempo real.",
+      "foto": "monitor.jpg",
+      "preco": 249
+    }
+  ],
+  "$schema": "./node_modules/json-server/schema.json"
+}
